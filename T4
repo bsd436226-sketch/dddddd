@@ -37,7 +37,7 @@ if not AllowedIDs[Player.UserId] then
     local KickTitle = Instance.new("TextLabel", KickFrame)
     KickTitle.Size = UDim2.new(1, 0, 0.35, 0)
     KickTitle.Position = UDim2.new(0, 0, 0, 10)
-    KickTitle.Text = "⛔ غير مصرح لك ⛔"
+    KickTitle.Text = "⛔ Not Authorized ⛔"
     KickTitle.TextColor3 = Color3.fromRGB(255, 0, 0)
     KickTitle.BackgroundTransparency = 1
     KickTitle.TextScaled = true
@@ -46,7 +46,7 @@ if not AllowedIDs[Player.UserId] then
     local KickMsg = Instance.new("TextLabel", KickFrame)
     KickMsg.Size = UDim2.new(1, 0, 0.3, 0)
     KickMsg.Position = UDim2.new(0, 0, 0.35, 0)
-    KickMsg.Text = "معرفك غير مسموح باستخدام هذا السكريبت\nUser ID: " .. Player.UserId
+    KickMsg.Text = "Your User ID is not authorized to use this script\nUser ID: " .. Player.UserId
     KickMsg.TextColor3 = Color3.fromRGB(255, 255, 255)
     KickMsg.BackgroundTransparency = 1
     KickMsg.TextScaled = true
@@ -55,7 +55,7 @@ if not AllowedIDs[Player.UserId] then
     local KickBtn = Instance.new("TextButton", KickFrame)
     KickBtn.Size = UDim2.new(0.5, 0, 0.18, 0)
     KickBtn.Position = UDim2.new(0.25, 0, 0.72, 0)
-    KickBtn.Text = "خروج"
+    KickBtn.Text = "Exit"
     KickBtn.TextScaled = true
     KickBtn.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
     KickBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -110,7 +110,7 @@ local function IsVisible(part)
     return not result
 end
 
---================ AIMBOT (أخف شيء) ===================
+--================ AIMBOT (Lightweight) ===================
 local lastTarget = nil
 local lastTargetTime = 0
 
@@ -198,8 +198,8 @@ local function TabButton(text, y)
     return b
 end
 
-local GeneralBtn = TabButton("🎛️ عام", 30)
-local CombatBtn = TabButton("⚔️ قتال", 90)
+local GeneralBtn = TabButton("🎛️ General", 30)
+local CombatBtn = TabButton("⚔️ Combat", 90)
 
 --================ CONTENT ============================
 local Content = Instance.new("Frame", Main)
@@ -287,21 +287,21 @@ local function Slider(parent, text, min, max, default, callback)
 end
 
 --================ GENERAL CONTENT ====================
-Toggle(General, "🎯 الإيمبوت", function(v) AIMBOT = v end)
-Toggle(General, "⭕ دائرة التصويب", function(v) SHOW_FOV = v end)
-Toggle(General, "🧱 فحص الجدار", function(v) WALL_CHECK = v end)
+Toggle(General, "🎯 Aimbot", function(v) AIMBOT = v end)
+Toggle(General, "⭕ FOV Circle", function(v) SHOW_FOV = v end)
+Toggle(General, "🧱 Wall Check", function(v) WALL_CHECK = v end)
 
-Slider(General, "حجم الدائرة", 50, 400, FOV, function(v) FOV = v end)
-Slider(General, "التخفيف", 1, 100, 18, function(v) SMOOTH = v / 100 end)
+Slider(General, "FOV Size", 50, 400, FOV, function(v) FOV = v end)
+Slider(General, "Smoothness", 1, 100, 18, function(v) SMOOTH = v / 100 end)
 
-Toggle(General, "الهدف: الرأس", function(v)
+Toggle(General, "Target: Head", function(v)
     AIM_PART = v and "Head" or "HumanoidRootPart"
 end)
 
 --================ COMBAT SEARCH =====================
 local SearchBox = Instance.new("TextBox", Combat)
 SearchBox.Size = UDim2.new(1, -10, 0, 40)
-SearchBox.PlaceholderText = "🔍 بحث عن لاعب..."
+SearchBox.PlaceholderText = "🔍 Search Player..."
 SearchBox.Text = ""
 SearchBox.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
 SearchBox.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -377,7 +377,7 @@ local IDLabel = Instance.new("TextLabel", Main)
 IDLabel.Size = UDim2.new(1, 0, 0, 20)
 IDLabel.Position = UDim2.new(0, 0, 0, 495)
 IDLabel.BackgroundTransparency = 1
-IDLabel.Text = "✅ مرخص | ID: " .. Player.UserId
+IDLabel.Text = "✅ Authorized | ID: " .. Player.UserId
 IDLabel.TextColor3 = Color3.fromRGB(0, 255, 0)
 IDLabel.Font = Enum.Font.GothamMedium
 IDLabel.TextSize = 12
